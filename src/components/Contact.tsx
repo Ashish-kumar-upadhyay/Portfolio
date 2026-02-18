@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Github, Linkedin, MessageCircle, Copy } from "lucide-react";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
+
 const Contact = () => {
   const {
     toast
@@ -21,25 +23,44 @@ const Contact = () => {
       [e.target.name]: e.target.value
     });
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    const mailtoLink = `mailto:ashishkumarupadhyay0328@gmail.com?subject=${subject}&body=${body}`;
-    window.open(mailtoLink);
-    toast({
-      title: "Email client opened",
-      description: "Your message has been prepared in your email client."
-    });
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'ashishkumarupadhyay0328@gmail.com'
+      };
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      message: ""
-    });
+      await emailjs.send(
+        'service_nm4p1zb', // Get this from EmailJS dashboard -> Email Services
+        'template_vo8tc8l', // Get this from EmailJS dashboard -> Email Templates
+        templateParams,
+        'm6hhXyhBQ1wkaKGVJ' // Get this from EmailJS dashboard -> Account -> Public Key
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon!"
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via WhatsApp.",
+        variant: "destructive"
+      });
+    }
   };
   const copyEmail = () => {
     navigator.clipboard.writeText("ashishkumarupadhyay0328@gmail.com");
