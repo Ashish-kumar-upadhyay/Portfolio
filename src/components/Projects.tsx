@@ -225,7 +225,7 @@ const Projects = () => {
                           <div className="mt-4 flex justify-center">
                             <Button 
                               className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-6"
-                              onClick={() => window.open(project.links.live, '_blank')}
+                              onClick={() => window.open("https://www.noamani.com", '_blank')}
                             >
                               <ExternalLink className="w-4 h-4 mr-2" />
                               Open Live Site
@@ -456,15 +456,6 @@ const Projects = () => {
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           Live Demo
-                        </Button>
-                        <Button 
-                          variant="outline"
-                          className="border-glass-border bg-glass backdrop-blur-md hover:bg-primary/10"
-                          onClick={() => window.open(project.links.github, '_blank')}
-                          disabled={project.links.github === "#"}
-                        >
-                          <Github className="w-4 h-4 mr-2" />
-                          View Code
                         </Button>
                       </div>
                     </div>

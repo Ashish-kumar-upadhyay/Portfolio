@@ -50,7 +50,7 @@ const Contact = () => {
   };
   const openWhatsApp = () => {
     const message = encodeURIComponent("Hi Ashish! I'm interested in discussing a project with you.");
-    window.open(`https://wa.me/919695005395?text=${message}`, '_blank');
+    window.open(`https://wa.me/917987665254?text=${message}`, '_blank');
   };
   return <section id="contact" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">

@@ -90,7 +90,7 @@ const Hero = () => {
           duration: 0.8,
           delay: 0.8
         }}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-glass backdrop-blur-md border border-glass-border hover:bg-primary/20 transition-all duration-300 hover:shadow-glow">
+            <a href="https://github.com/Ashish-kumar-upadhyay" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-glass backdrop-blur-md border border-glass-border hover:bg-primary/20 transition-all duration-300 hover:shadow-glow">
               <Github className="w-6 h-6" />
             </a>
             <a href="https://www.linkedin.com/in/ashish-kumar-upadhyay-071499284/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-glass backdrop-blur-md border border-glass-border hover:bg-accent/20 transition-all duration-300 hover:shadow-glow">

@@ -23,7 +23,7 @@ const Footer = () => {
           
           <div className="flex justify-center gap-6 mb-8">
             <a
-              href="https://github.com"
+              href="https://github.com/Ashish-kumar-upadhyay"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-glass backdrop-blur-md border border-glass-border hover:bg-primary/20 transition-all duration-300 hover:shadow-glow"
