@@ -24,6 +24,8 @@ import screenshot9 from "@/assets/screenshot/Screenshot 9.png";
 import screenshot10 from "@/assets/screenshot/Screenshot 10.png";
 import screenshot11 from "@/assets/screenshot/Screenshot 11.png";
 import screenshot12 from "@/assets/screenshot/Screenshot 12.png";
+import lmsPlatformPreview from "@/assets/lms-platform-preview.jpg";
+import lmsPlatformVideo from "@/assets/lms-platform-demo.mp4";
 
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,6 +33,27 @@ const Projects = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects = [
+    {
+      title: "LearnX Platform - LMS System",
+      description: "Complete Learning Management System built for client requirement for schools. ₹30K project featuring Student, Teacher & Admin portals with course management, live classes, assignment tracking, grade reports, and interactive dashboard with modern UI/UX design.",
+      techStack: ["React", "Node.js", "MongoDB", "Express", "Socket.io", "JWT Auth", "TailwindCSS", "Video Streaming"],
+      category: "Education",
+      image: lmsPlatformPreview,
+      videoDemo: lmsPlatformVideo,
+      featured: true,
+      links: {
+        live: "https://learnxplatform.qzz.io",
+        github: "#"
+      },
+      highlights: [
+        "🎓 Multi-role System (Student/Teacher/Admin)",
+        "📹 Live Video Classes & Recording",
+        "📊 Real-time Analytics Dashboard",
+        "💬 Interactive Chat & Discussion",
+        "📝 Assignment & Exam System",
+        "📱 Fully Responsive Design"
+      ]
+    },
     {
       title: "Nomani Perfume (Dubai Client)",
       description: "Luxury fragrance brand site with animated visuals, multiple versions, and a premium feel. ₹40K budget project showcasing high-end e-commerce functionality with full client satisfaction.",
@@ -103,7 +126,7 @@ const Projects = () => {
     }
   ];
 
-  const categories = ["All", "E-commerce", "Web App", "Healthcare", "Business"];
+  const categories = ["All", "E-commerce", "Web App", "Healthcare", "Business", "Education"];
 
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -421,6 +444,21 @@ const Projects = () => {
                       <p className="font-poppins text-muted-foreground mb-6 leading-relaxed text-lg">
                         {project.description}
                       </p>
+                      
+                      {/* Special Highlights for LMS Project */}
+                      {project.highlights && (
+                        <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-xl border border-primary/20">
+                          <h4 className="font-semibold text-primary mb-3 font-playfair">Key Features</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {project.highlights.map((highlight, index) => (
+                              <div key={index} className="flex items-center gap-2 text-sm">
+                                <span className="text-primary">✨</span>
+                                <span className="text-foreground">{highlight}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                       
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.techStack.map((tech) => (
